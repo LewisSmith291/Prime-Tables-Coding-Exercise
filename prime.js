@@ -5,7 +5,6 @@ export function generatePrimes(n){
   if (!Number.isInteger(n)) throw new TypeError(`Expected integer parameter, got ${n}`);
   if (n <= 0) throw new RangeError(`parameter must be above 0, got ${n}`);
 
-  const output = [];
   const limit = getUpperBound(n);
 
   // Initialise boolean list containing if numbers are composites
@@ -21,6 +20,14 @@ export function generatePrimes(n){
       // Change each multiple to true, as it can't be prime
       compositeList[multiple] = true;
     }
+  }
+
+  // Create output array
+  const output = []
+  // Start at i = 2 as 0 and 1 are not primes
+  for (let i = 2; output.length < n; i++){
+    // If false, add index to output array
+    if (!compositeList[i]) output.push(i);
   }
 
   return output;
@@ -40,5 +47,3 @@ export function getUpperBound(n){
   return Math.ceil(n * (Math.log(n) + Math.log(Math.log(n))));
 
 }
-
-generatePrimes(2);
