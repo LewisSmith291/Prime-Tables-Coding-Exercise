@@ -1,0 +1,15 @@
+{
+  "name": "prime-table",
+  "version": "1.0.0",
+  "description": "Takes a user input 'n' and generates that many prime numbers, then outputs a multiplication table to a .md file",
+  "main": "index.js",
+  "engines": {"node": ">=24"},
+  "scripts": {
+    "test": "node --test",
+    "start": "node index.js",
+    "test:coverage": "node --test --experimental-test-coverage"
+  },
+  "author": "Lewis Smith",
+  "private": true,
+  "type": "module"
+}
