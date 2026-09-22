@@ -9,10 +9,7 @@ export function generatePrimes(n){
   const limit = getUpperBound(n);
 
   // Initialise boolean list containing if numbers are composites
-  const compositeList = [];
-  for (let i = 0; i < limit; i++){
-    compositeList[i-2] = true;
-  }
+  const compositeList = new Array(limit + 1).fill(false);
 
   while (output.length <= limit){
 
