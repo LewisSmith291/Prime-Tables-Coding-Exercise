@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import {describe, it} from 'node:test'
-import { generatePrimes } from './prime'
+import { generatePrimes } from './prime.js'
 
 describe("Testing generatePrimes(n) function", () => {
   describe("Input validation", () => {
