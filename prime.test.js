@@ -26,7 +26,20 @@ describe("Testing generatePrimes(n) function", () => {
       const primes = generatePrimes(1000);
       assert.strictEqual(primes.length , 1000);
       assert.strictEqual(primes[-1], 7919);
+      
     })
+    it("benchmark generating 100,000 primes quickly", () => {
+      // Loose time limit of 1000ms fails only if algorithm has problems, not if slower machine 
+      const start = performance.now();
+      const primes = generatePrimes(100000);
+      const elapsed = performance.now() - start;
+
+      assert.strictEqual(primes.length, 100000);
+      assert.strictEqual(primes.at(-1), 1299709);
+      // Time limit of 1s
+      assert.ok(elapsed < 1000, `took ${elapsed.toFixed(1)}ms, expected < 1000ms`);
+    });
+
   })
 })
 
