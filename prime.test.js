@@ -38,6 +38,12 @@ describe("Testing generatePrimes(n) function", () => {
       // Time limit of 1s
       assert.ok(elapsed < 1000, `took ${elapsed.toFixed(1)}ms, expected < 1000ms`);
     });
+    it("benchmark 1,000,000 primes" , () => {
+      const start = performance.now();
+      const primes = generatePrimes(1000000);
+      const elapsed = performance.now() - start;
+      assert.ok(elapsed < 1000, `took ${elapsed.toFixed(1)}ms, expected < 1000ms`);
+    })
 
   })
 })
