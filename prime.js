@@ -13,10 +13,12 @@ export function generatePrimes(n){
   // Cross off composites
   // Go through each number p
   // If p has not been crossed off yet, it is prime, cross off all multiples of p
-  for (let p = 2; p <= limit; p++){
+  // Loop ends at p*p since all numbers will be checked off by the time p = Math.sqrt(limit)
+  for (let p = 2; p * p <= limit; p++){
     if (compositeList[p]) continue; // skip already crossed off numbers
-    // Iterate through all multiples of p, starting at 2 * p
-    for (let multiple = 2 * p; multiple <= limit; multiple += p) {
+    // Iterate through all multiples of p, starting at p * p
+    // Starting at p*p instead of 2*p means that numbers already visited by smaller p's don't get looked at multiple times
+    for (let multiple = p * p; multiple <= limit; multiple += p) {
       // Change each multiple to true, as it can't be prime
       compositeList[multiple] = true;
     }
