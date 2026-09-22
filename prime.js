@@ -11,9 +11,7 @@ export function generatePrimes(n){
   // Initialise boolean list containing if numbers are composites
   const compositeList = new Array(limit + 1).fill(false);
 
-  while (output.length <= limit){
-
-  }
+  
 
   return output;
 }

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import {describe, it} from 'node:test'
 import { generatePrimes, getUpperBound } from './prime.js'
+import { deepStrictEqual } from 'node:assert'
 
 describe("Testing generatePrimes(n) function", () => {
   describe("Input validation", () => {
@@ -13,7 +14,14 @@ describe("Testing generatePrimes(n) function", () => {
       assert.throws(() => generatePrimes(-5), RangeError);
       assert.throws(() => generatePrimes(0), RangeError);
     })
-
+  })
+  describe("Output tests", () => {
+    const primes = generatePrimes(1000);
+    assert.deepStrictEqual(generatePrimes(1), [2]);
+    assert.deepStrictEqual(generatePrimes(5), [2,3,5,7,11]);
+    assert.deepStrictEqual(generatePrimes(6), [2,3,5,7,11,13]);
+    assert.strictEqual(primes.length , 1000);
+    assert.strictEqual(primes[-1], 7919);
   })
 })
 
