@@ -1,10 +1,22 @@
 // Given 'n', generates n number of prime numbers, starting from 2
+// Uses sieve of Eratosthenes for algorithm
 export function generatePrimes(n){
   // Input validation
   if (!Number.isInteger(n)) throw new TypeError(`Expected integer parameter, got ${n}`);
   if (n <= 0) throw new RangeError(`parameter must be above 0, got ${n}`);
 
   const output = [];
+  const limit = getUpperBound(n);
+
+  // Initialise boolean list containing if numbers are composites
+  const compositeList = [];
+  for (let i = 0; i < limit; i++){
+    compositeList[i-2] = true;
+  }
+
+  while (output.length <= limit){
+
+  }
 
   return output;
 }
@@ -14,6 +26,7 @@ export function generatePrimes(n){
 // Uses Rosser's theorem: for n >= 6: n(ln n + ln ln n)
 export function getUpperBound(n){
   // Formula does not work for n < 6
+  // 12 covers the first 5 primes
   if (n < 6){
     return 12;
   }
