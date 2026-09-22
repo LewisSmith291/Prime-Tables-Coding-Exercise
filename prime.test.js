@@ -25,7 +25,7 @@ describe("Testing generatePrimes(n) function", () => {
     it("checking large primes", () => {
       const primes = generatePrimes(1000);
       assert.strictEqual(primes.length , 1000);
-      assert.strictEqual(primes[-1], 7919);
+      assert.strictEqual(primes.at(-1), 7919);
       
     })
     it("benchmark generating 100,000 primes quickly", () => {
