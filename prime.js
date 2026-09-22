@@ -11,7 +11,17 @@ export function generatePrimes(n){
   // Initialise boolean list containing if numbers are composites
   const compositeList = new Array(limit + 1).fill(false);
 
-  
+  // Cross off composites
+  // Go through each number p
+  // If p has not been crossed off yet, it is prime, cross off all multiples of p
+  for (let p = 2; p <= limit; p++){
+    if (compositeList[p]) continue; // skip already crossed off numbers
+    // Iterate through all multiples of p, starting at 2 * p
+    for (let multiple = 2 * p; multiple <= limit; multiple += p) {
+      // Change each multiple to true, as it can't be prime
+      compositeList[multiple] = true;
+    }
+  }
 
   return output;
 }
@@ -30,3 +40,5 @@ export function getUpperBound(n){
   return Math.ceil(n * (Math.log(n) + Math.log(Math.log(n))));
 
 }
+
+generatePrimes(2);
