@@ -16,12 +16,17 @@ describe("Testing generatePrimes(n) function", () => {
     })
   })
   describe("Output tests", () => {
-    const primes = generatePrimes(1000);
-    assert.deepStrictEqual(generatePrimes(1), [2]);
-    assert.deepStrictEqual(generatePrimes(5), [2,3,5,7,11]);
-    assert.deepStrictEqual(generatePrimes(6), [2,3,5,7,11,13]);
-    assert.strictEqual(primes.length , 1000);
-    assert.strictEqual(primes[-1], 7919);
+    it("checking smaller primes", () => {
+      assert.deepStrictEqual(generatePrimes(1), [2]);
+      assert.deepStrictEqual(generatePrimes(5), [2,3,5,7,11]);
+      assert.deepStrictEqual(generatePrimes(6), [2,3,5,7,11,13]);
+      assert.deepStrictEqual(generatePrimes(10), [2,3,5,7,11,13,17,19,23,29]);
+    })
+    it("checking large primes", () => {
+      const primes = generatePrimes(1000);
+      assert.strictEqual(primes.length , 1000);
+      assert.strictEqual(primes[-1], 7919);
+    })
   })
 })
 
