@@ -9,7 +9,7 @@ describe("Testing buildTable(primes) function", () => {
     })
   })
   describe("Output tests", () => {
-    it("base case of n=1", () => {
+    it("base case of [2]", () => {
       assert.deepStrictEqual(buildTable([2]), [[null, 2], [2,4]]);
     })
     it("output of primes=[2,3,5] is correct", () =>{
