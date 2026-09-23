@@ -16,8 +16,17 @@ export function buildTable(primes){
 
 // Takes a 2d array as input, and outputs a string of the table, formatted for a .md file
 export function formatTable(grid){
-  // Checks length of the bottom right number in grid, as this will be the largest
+  // Checks length of the bottom right number in grid
+  // Primes are ascending, so last prime squared is always biggest
   const maxDigits = String(grid.at(-1).at(-1)).length;
 
-  
+  // Helper function for adding padding to start of number
+  // if n is null, use "" instead
+  const pad = (n) => String(n ?? "").padStart(maxDigits);
+
+  // Helper function for generating .md formatted row
+  const formatRow = (row) => "| " + row.map(pad).join(" | ") + " |";
+
+
+
 }
