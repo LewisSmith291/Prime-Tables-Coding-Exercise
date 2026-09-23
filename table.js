@@ -27,6 +27,12 @@ export function formatTable(grid){
   // Helper function for generating .md formatted row
   const formatRow = (row) => "| " + row.map(pad).join(" | ") + " |";
 
+  const header = formatRow(grid[0]);
+  // n conscutive dashes, where n is largest number
+  const separatorCell = "-".repeat(maxDigits); 
+  // Put separators between dashes for separator row
+  const separator = formatRow(Array(grid.length).fill(separatorCell));
 
-
+  // join header, separator, and the rest of the rows together and put each on new line
+  return [header, separator, ...grid.map((row) => formatRow(row))].join("\n");
 }
