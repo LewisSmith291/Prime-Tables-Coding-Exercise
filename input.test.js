@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {describe, it} from 'node:test';
-import { parseN } from './input.js';
+import { parseN, N_LIMIT } from './input.js';
 
 describe("Testing parseN(raw) function", () => {
   describe("Input validation", () =>{
