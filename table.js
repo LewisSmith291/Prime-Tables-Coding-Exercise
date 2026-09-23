@@ -31,7 +31,8 @@ export function formatTable(grid){
   // n conscutive dashes, where n is largest number
   const separatorCell = "-".repeat(maxDigits); 
   // Put separators between dashes for separator row
-  const separator = formatRow(Array(grid.length).fill(separatorCell));
+  // Makes a new array filled with separatorCell, with a count of the length of the header row
+  const separator = formatRow(Array(grid[0].length).fill(separatorCell));
 
   // join header, separator, and the rest of the rows together and put each on new line
   // grid.slice(1) removes header from grid array, otherwise it prints twice
