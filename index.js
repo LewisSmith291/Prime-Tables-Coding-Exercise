@@ -1,13 +1,18 @@
-import { generatePrimes } from "./prime"
-import { buildTable, formatTable } from "./table"
+import { generatePrimes } from "./prime";
+import { buildTable, formatTable } from "./table";
+import { writeFileSync } from "node:fs";;
 
 export function parseN(raw){
+  // null input
   if (raw == null || String(raw).trim() === "") throw new TypeError(`n is required`);
+  // n must be a whole number
   const n = Number(raw);
   if(!Number.isInteger(n)) throw new TypeError(`n must be a whole number, got: ${raw}`);
-  if(n < 1) throw new RangeError(`n must be 1 or larger, got: ${raw}`);
+  // n must be larger than 0
+  if(n <= 0) throw new RangeError(`n must be larger than 0, got: ${raw}`);
 
-  
+  // All checks passed
+  return n;
 }
 
 try{
