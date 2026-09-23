@@ -34,5 +34,6 @@ export function formatTable(grid){
   const separator = formatRow(Array(grid.length).fill(separatorCell));
 
   // join header, separator, and the rest of the rows together and put each on new line
-  return [header, separator, ...grid.map((row) => formatRow(row))].join("\n");
+  // grid.slice(1) removes header from grid array, otherwise it prints twice
+  return [header, separator, ...grid.slice(1).map((row) => formatRow(row))].join('\n');
 }
