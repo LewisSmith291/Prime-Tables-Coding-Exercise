@@ -1,5 +1,5 @@
-import { generatePrimes } from "./prime";
-import { buildTable, formatTable } from "./table";
+import { generatePrimes } from "./prime.js";
+import { buildTable, formatTable } from "./table.js";
 import { writeFileSync } from "node:fs";;
 
 export function parseN(raw){
