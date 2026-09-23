@@ -16,5 +16,8 @@ export function buildTable(primes){
 
 // Takes a 2d array as input, and outputs a string of the table, formatted for a .md file
 export function formatTable(grid){
+  // Checks length of the bottom right number in grid, as this will be the largest
+  const maxDigits = String(grid.at(-1).at(-1)).length;
+
   
 }
