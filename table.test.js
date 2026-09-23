@@ -30,5 +30,22 @@ describe("Testing buildTable(primes) function", () => {
 })
 
 describe("Testing formatTable(grid) function", () => {
-  
+  describe("Output tests", () => {
+    it("n=3 ([2,3,5]) should produce 4x4 multiplication grid", () =>{
+      const expected = [
+        '|    |  2 |  3 |  5 |',
+        '| -- | -- | -- | -- |',
+        '|  2 |  4 |  6 | 10 |',
+        '|  3 |  6 |  9 | 15 |',
+        '|  5 | 10 | 15 | 25 |'
+      ].join('\n');
+      assert.strictEqual(formatTable(buildTable([2,3,5])), expected);
+    });
+    it("Testing each line is same length", () => {
+      // These inputs give a mix of 1/2/3 digit numbers
+      const lines = formatTable(buildTable([2,3,5,7,11])).split("\n");
+      const length = lines[0].length;
+      lines.forEach((line) => assert.strictEqual((line.length), length));
+    })
+  })
 })
